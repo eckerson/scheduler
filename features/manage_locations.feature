@@ -17,3 +17,8 @@ Feature: Managing locations
 		Then I should see "Location was successfully created."
 		And I should see "Conference Center"
 		And I should have 1 location
+
+	Scenario: Edit Valid Location
+		Given I have a location named "Conference Center"
+		When I fill in "address5" with "85008"
+		Then the location should have an address5 of "85008"

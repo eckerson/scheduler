@@ -67,3 +67,45 @@ div {
     list-style: square;
   }
 }
+
+div.action-bar
+{
+  margin-bottom: 1em;
+}
+
+table.recordset
+{
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #000000;
+  col.actions
+  {
+    width: 50px;
+  }
+  thead > tr > td
+  {
+    font-weight: bold;
+  }
+  thead > tr:last-child
+  {
+    border-bottom: 1px solid #000000;
+  }
+  tfoot > tr:first-child
+  {
+    border-top: 1px solid #000000;
+  }
+  tbody > tr:nth-child( odd )
+  {
+    background-color: #EDEDED;
+  }
+  tbody > tr:nth-child( even )
+  {
+    background-color: #FFFFFF;
+  }
+  td,
+  th
+  {
+    padding: .2em;
+  }
+}
