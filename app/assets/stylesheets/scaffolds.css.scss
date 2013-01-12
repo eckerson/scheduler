@@ -1,15 +1,36 @@
+/*Color Scheme http://colorschemedesigner.com/#2M32iw0w0w0w0*/
+
 body {
-  background-color: #fff;
-  color: #333;
+  background-color: #E0E0E0;
+  color: #333333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  padding: 0px;
+  margin: 0px;
 }
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+}
+
+h1, h2, h3, #site-title
+{
+  font-family: georgia, "Times New Roman", times;
+  color: #7309AA;
+}
+
+dt
+{
+  font-weight: bold;
+  color: #7309AA;
+}
+
+ul
+{
+  color: #7409AA;
 }
 
 pre {
@@ -19,13 +40,10 @@ pre {
 }
 
 a {
-  color: #000;
-  &:visited {
-    color: #666;
-  }
+  color: #1DD300;
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: #7AE969;
+    background-color: #1DD300;
   }
 }
 
@@ -68,6 +86,92 @@ div {
   }
 }
 
+#title-bar
+{
+  height: 120px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background-color: #52E93A;
+  opacity: 0.5;
+}
+
+#site-frame
+{
+  width: 1000px;
+  margin: auto;
+}
+
+#site-header
+{
+  height: 100px;
+  margin: 2px;
+  margin-top: 20px;
+  background-color: #52E93A;
+  #site-title
+  {
+    font-size: 3em;
+    line-height: 100px;
+    font-weight: bold;
+  }
+}
+
+#site-nav
+{
+  display: block;
+  width: 100%;
+  height: 2em;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  ul
+  {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    line-height: 2em;
+    li
+    {
+      float: left;
+      margin-left: 2px;
+      margin-right: 2px;
+      a
+      {
+        display: block;
+        padding-left: 5px;
+        padding-right: 5px;
+        background-color: #FFCA73;
+        color: #A66800;
+      }
+      a.active
+      {
+        background-color: #A66800;
+        color: #FFCA73;
+      }
+    }
+  }
+  .right-filler
+  {
+    overflow: hidden;
+    div
+    {
+      background-color: #FFCA73;
+      margin-left: 2px;
+      margin-right: 2px;
+      height: 2em;
+    }
+  }
+}
+
+#main-content
+{
+  background-color: #FFFFFF;
+  padding: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 2px;
+}
+
 div.action-bar
 {
   margin-bottom: 1em;
@@ -78,34 +182,48 @@ table.recordset
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 1em;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #7309AA;
   col.actions
   {
     width: 50px;
   }
-  thead > tr > td
+  thead > tr > td,
+  thead > tr > th
   {
     font-weight: bold;
+    color: #7309AA;
   }
   thead > tr:last-child
   {
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #7309AA;
   }
   tfoot > tr:first-child
   {
-    border-top: 1px solid #000000;
+    border-top: 1px solid #7309AA;
   }
   tbody > tr:nth-child( odd )
   {
-    background-color: #EDEDED;
+    background-color: #CDC2D3/*#D3CFD6*/;
   }
   tbody > tr:nth-child( even )
   {
     background-color: #FFFFFF;
   }
-  td,
-  th
+  tbody > tr > th
+  {
+    text-align: left;
+  }
+  td, th
   {
     padding: .2em;
+  }
+  a
+  {
+    color: #4A036F;
+    &:hover
+    {
+      background-color: #4A036F;
+      color: #CDC2D3;
+    }
   }
 }

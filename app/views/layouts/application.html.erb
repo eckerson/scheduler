@@ -8,7 +8,28 @@
 </head>
 <body>
 
-<%= yield %>
+<div id="title-bar"></div>
+<div id="site-frame">
+	<div id="site-header">
+		<div id="site-title">
+			%SITE_TITLE
+		</div>
+	</div>
+	<nav id="site-nav">
+		<ul>
+			<% SITE_NAV.each do |nav| %>
+				<li>
+					<%= link_to nav[ "title" ], nav[ "link_to" ], { :class => ( 'active' if current_page?( nav[ "link_to" ] ) ) } %>
+				</li>
+			<% end %>
+		</ul>
+		<div class="right-filler"><div></div></div>
+	</nav>
+
+	<div id="main-content">
+		<%= yield %>
+	</div>
+</div>
 
 </body>
 </html>
