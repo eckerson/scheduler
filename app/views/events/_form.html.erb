@@ -25,25 +25,25 @@
   </div>
   <div class="field">
     <%= f.label :location_id, "Location" %><br />
-    <%= f.select( :location_id, options_for_select( @location_select ) ) %>
+    <%= f.select( :location_id, options_from_collection_for_select( @locations, "id", "name", @event.location_id ), { :prompt => "Select a Location" } ) %>
   </div>
   <div class="field">
     Allow Event Scheduling
     <br />
-    <%= f.radio_button( :allow_event_scheduling, "1" ) %>
-    <%= f.label :allow_event_scheduling_1, "Yes" %>
+    <%= f.radio_button( :allow_event_scheduling, "true" ) %>
+    <%= f.label :allow_event_scheduling_true, "Yes" %>
     <br />
-    <%= f.radio_button( :allow_event_scheduling, "0" ) %>
-    <%= f.label :allow_event_scheduling_0, "No" %>
+    <%= f.radio_button( :allow_event_scheduling, "false" ) %>
+    <%= f.label :allow_event_scheduling_false, "No" %>
   </div>
   <div class="field">
     Allow Track Scheduling
     <br />
-    <%= f.radio_button( :allow_track_scheduling, "1" ) %>
-    <%= f.label :allow_track_scheduling_1, "Yes" %>
+    <%= f.radio_button( :allow_track_scheduling, "true" ) %>
+    <%= f.label :allow_track_scheduling_true, "Yes" %>
     <br />
-    <%= f.radio_button( :allow_track_scheduling, "0" ) %>
-    <%= f.label :allow_track_scheduling_0, "No" %>
+    <%= f.radio_button( :allow_track_scheduling, "false" ) %>
+    <%= f.label :allow_track_scheduling_false, "No" %>
   </div>
   <div class="actions">
     <%= f.submit %>

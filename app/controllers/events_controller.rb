@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   end
 
   before_filter :only => [:edit, :update, :show, :destroy] do
-    @event = Event.find( params[ :id ] )
+    @event = Event.find( params[ :id ], :include => :location )
   end
 
   before_filter :init_location_select, :only => [:new, :create, :edit, :update]
@@ -15,7 +15,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.all( :include => :location )
     respond_with( @events )
   end
 
@@ -33,13 +33,6 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    @locations = Location.all
-    @location_select = [ [ "Select a Location", "" ] ]
-
-    @locations.each do |location|
-      @location_select << [ location.name, location.id ]
-    end
-    
     respond_with( @event )
   end
 
@@ -84,11 +77,6 @@ class EventsController < ApplicationController
 
 private
   def init_location_select
-    @locations = Location.all
-    @location_select = [ [ "Select a Location", "" ] ]
-
-    @locations.each do |location|
-    	@location_select << [ location.name, location.id ]
-    end
+    @locations = Location.all( :order => "name" )
   end
 end
