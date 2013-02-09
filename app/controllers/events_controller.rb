@@ -34,6 +34,12 @@ class EventsController < ApplicationController
   def edit
     @event = Event.find( params[ :id ] )
     @locations = Location.all
+    @location_select = [ [ "Select a Location", "" ] ]
+
+    @locations.each do |location|
+      @location_select << [ location.name, location.id ]
+    end
+    
     respond_with( @event )
   end
 
