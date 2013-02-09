@@ -27,7 +27,7 @@ class EventsController < ApplicationController
     	@location_select << [ location.name, location.id ]
     end
 
-    respond_with( @event, @location_select )
+    respond_with( @event )
   end
 
   # GET /events/1/edit

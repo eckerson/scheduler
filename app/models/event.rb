@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
  	belongs_to :location
- 	attr_accessible :allow_event_scheduling, :allow_track_scheduling, :end_date, :name, :start_date
+ 	attr_accessible :allow_event_scheduling, :allow_track_scheduling, :end_date, :name, :start_date, :location_id
 
  	validates :name,					:presence => true
 	validates :start_date,				:presence => true
