@@ -2,6 +2,16 @@ class EventsController < ApplicationController
 
   respond_to :html, :xml, :json
 
+  before_filter :only => [:new, :create] do
+    @event = Event.new params[ :event ]
+  end
+
+  before_filter :only => [:edit, :update, :show, :destroy] do
+    @event = Event.find( params[ :id ] )
+  end
+
+  before_filter :init_location_select, :only => [:new, :create, :edit, :update]
+
   # GET /events
   # GET /events.json
   def index
@@ -12,27 +22,17 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @event = Event.find( params[ :id ] )
     respond_with( @event )
   end
 
   # GET /events/new
   # GET /events/new.json
   def new
-    @event = Event.new
-    @locations = Location.all
-    @location_select = [ [ "Select a Location", "" ] ]
-
-    @locations.each do |location|
-    	@location_select << [ location.name, location.id ]
-    end
-
     respond_with( @event )
   end
 
   # GET /events/1/edit
   def edit
-    @event = Event.find( params[ :id ] )
     @locations = Location.all
     respond_with( @event )
   end
@@ -40,8 +40,6 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new( params[ :event ] )
-
     respond_with( @event ) do |format|
       if @event.save
         flash[ :notice ] = "Event was created successfully."
@@ -55,8 +53,6 @@ class EventsController < ApplicationController
   # PUT /events/1
   # PUT /events/1.json
   def update
-    @event = Event.find( params[ :id ] )
-
     respond_with( @event ) do |format|
       if @event.update_attributes( params[ :event ] )
         flash[ :notice ] = "Event was successfully updated."
@@ -72,12 +68,21 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    @event = Event.find( params[ :id ] )
     @event.destroy
 
     respond_with( @event ) do |format|
       format.html { redirect_to events_url }
       format.json { head :no_content }
+    end
+  end
+
+private
+  def init_location_select
+    @locations = Location.all
+    @location_select = [ [ "Select a Location", "" ] ]
+
+    @locations.each do |location|
+    	@location_select << [ location.name, location.id ]
     end
   end
 end
