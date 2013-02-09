@@ -2,6 +2,7 @@ Scheduler::Application.routes.draw do
   get "home/index"
 
   resources :locations
+  resources :events
 
 
   # The priority is based upon order of creation:

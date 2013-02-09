@@ -6,4 +6,6 @@ class Location < ActiveRecord::Base
 	validates :address4,	:presence => true
 	validates :address5,	:presence => true
 	validates :name,		:presence => true
+
+	has_many :events
 end

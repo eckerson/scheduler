@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130107065212) do
+ActiveRecord::Schema.define(:version => 20130208220815) do
+
+  create_table "events", :force => true do |t|
+    t.string   "name"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "location_id"
+    t.boolean  "allow_event_scheduling"
+    t.boolean  "allow_track_scheduling"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
+
+  add_index "events", ["location_id"], :name => "index_events_on_location_id"
 
   create_table "locations", :force => true do |t|
     t.string   "name"

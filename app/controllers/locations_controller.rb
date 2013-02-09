@@ -1,17 +1,3 @@
-#class UsersController < ApplicationController::Base
-
-#  respond_to :html, :xml, :json
-
-#  def index
-#    respond_with(@users = User.all)
-#  end
-
-#  def create
-#    @user = User.create(params[:user])
-#    respond_with(@user, :location => users_url)
-#  end
-#end
-
 class LocationsController < ApplicationController
 
   respond_to :html, :xml, :json
